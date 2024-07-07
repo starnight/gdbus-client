@@ -153,6 +153,7 @@ layout (GtkWidget *window)
   send_msg_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
   entry = gtk_entry_new ();
   gtk_widget_set_hexpand (entry, TRUE);
+  g_signal_connect (entry, "activate", G_CALLBACK (button_click_handler), entry);
   button = gtk_button_new_with_label ("Send");
   g_signal_connect (button, "clicked", G_CALLBACK (button_click_handler), entry);
   gtk_box_append (GTK_BOX (send_msg_box), entry);
